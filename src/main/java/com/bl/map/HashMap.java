@@ -3,11 +3,11 @@ package com.bl.map;
 import java.util.Arrays;
 
 public class HashMap<K, T> {
-    MapLinkedList[] bucket = new MapLinkedList[5];
+    MapLinkedList[] bucket = new MapLinkedList[6];
     int size = 0;
 
     private int findBucketIndex(K key) {
-        return (key.hashCode() % bucket.length);
+        return Math.abs(key.hashCode() % bucket.length);
     }
 
     public void add(K key, T value) {
