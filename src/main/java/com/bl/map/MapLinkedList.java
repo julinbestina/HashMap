@@ -36,6 +36,20 @@ public class MapLinkedList<K, T> {
 
     }
 
+    public void pop(K key) {
+        MyMapNode temp = head;
+        while (temp != null) {
+            if (temp.key.equals(key)) {
+                if (temp == head)
+                    head = temp.next;
+                temp.Value = null;
+                temp.key = null;
+                return;
+            }
+            temp = temp.next;
+        }
+    }
+
 
     @Override
     public String toString() {

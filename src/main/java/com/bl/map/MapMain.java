@@ -4,7 +4,7 @@ public class MapMain {
     public static void main(String[] args) {
         HashMap<String, Integer> hashmap = new HashMap<>();
         String sentence = "Paranoids are not paranoid because they are paranoid but because they keep" +
-                            " putting themselves deliberately into paranoid avoidable situations";
+                " putting themselves deliberately into paranoid avoidable situations";
         String[] words = sentence.split(" ");
 
         for (String word : words) {
@@ -15,7 +15,9 @@ public class MapMain {
             value += 1;
             hashmap.add(word, value);
         }
-
+        System.out.println("Size before removing:" + hashmap.getSize());
+        hashmap.remove("avoidable");
+        System.out.println("Size after removing:" + hashmap.getSize());
         System.out.println(hashmap);
     }
 }

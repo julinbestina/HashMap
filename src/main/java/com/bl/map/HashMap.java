@@ -20,10 +20,27 @@ public class HashMap<K, T> {
 
     public T get(K key) {
         int index = findBucketIndex(key);
-        if(bucket[index]== null) {
+        if (bucket[index] == null) {
             return null;
         }
         return (T) bucket[index].search(key);
+    }
+
+    public void remove(K key) {
+        int index = findBucketIndex(key);
+        bucket[index].pop(key);
+        size--;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        if (size == 0) {
+            return true;
+        }
+        return false;
     }
 
     @Override
